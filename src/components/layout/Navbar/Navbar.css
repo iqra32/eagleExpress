@@ -1,0 +1,118 @@
+.navbar-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* Make navbar black */
+  background-color: #000000; /* solid black */
+  /* keep slight blur for glassy effect if desired */
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.navbar-logo {
+  height: 150px;
+  width: 200;
+}
+
+.navbar-link {
+  font-size: 0.95rem;
+  color: #ffffff; /* white links on black navbar */
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: var(--accent-secondary);
+}
+
+.navbar-link.active {
+  /* Use the requested yellow/gold when a nav item is active */
+  color: #ffcd05;
+  font-weight: bold;
+}
+
+.navbar-cta {
+  border-radius: 50px;
+  /* Make desktop navbar CTA primary blue */
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.mobile-toggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #000000;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 1rem;
+}
+
+.mobile-link {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: block;
+  color: #ffffff;
+}
+
+.mobile-link.active {
+  /* Match desktop active color for mobile links */
+  color: #ffcd05;
+  font-weight: bold;
+}
+
+.mobile-cta {
+  margin-top: 1rem;
+  border-radius: 50px;
+  /* Make mobile CTA match desktop: blue with white text */
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.navbar-cta:hover,
+.mobile-cta:hover {
+  /* Hover to a slightly darker blue instead of orange */
+  background-color: #0b35a0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 53, 160, 0.14);
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+  .mobile-toggle {
+    display: none;
+  }
+}
