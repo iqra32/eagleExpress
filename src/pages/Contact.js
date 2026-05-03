@@ -46,6 +46,7 @@ const Contact = () => {
           resetForm();
         })
         .catch((error) => {
+          
           console.log(error);
           alert('❌ Failed to send message');
         });
