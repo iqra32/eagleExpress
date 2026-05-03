@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import ScrollReveal from '../components/ScrollReveal';
 const Contact = () => {
     const form = useRef();
 
@@ -68,31 +69,38 @@ const Contact = () => {
     <div className="animate-fade-in">
       <section className="hero-section">
         <div className="container">
-          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', maxWidth: '800px', lineHeight: 1.1, color: '#ffffff' }}>
-            Get in Touch
-
-          </h1>
-          <p className="hero-subtitle">
-            Ready to increase your payload and cut the stress? Reach out today.
-          </p>
-       
+          <ScrollReveal delay={0}>
+            <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', maxWidth: '800px', lineHeight: 1.1, color: '#ffffff' }}>
+              Get in Touch
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={140}>
+            <p className="hero-subtitle">
+              Ready to increase your payload and cut the stress? Reach out today.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       <div className="section-padding" style={{ marginTop: '6px', paddingTop: 0 }}>
         <div className="container">
           <div className="text-center" style={{ marginBottom: '4rem' }}>
-            <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Contact <span className="highlight-text">Us</span></h1>
-            <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
-              We're here to help with all your dispatch service needs
-            </p>
+            <ScrollReveal delay={0}>
+              <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Contact <span className="highlight-text">Us</span></h1>
+            </ScrollReveal>
+            <ScrollReveal delay={120}>
+              <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
+                We&apos;re here to help with all your dispatch service needs
+              </p>
+            </ScrollReveal>
           </div>
 
         <div className="grid md:grid-cols-2 gap-lg">
           
           {/* Contact Details */}
           <div className="flex flex-col gap-lg" style={{ order: 2 }}>
-             <div className="card flex items-center gap-md">
+            <ScrollReveal delay={0}>
+              <div className="card flex items-center gap-md">
                 <div style={{ background: 'rgba(249, 115, 22, 0.1)', padding: '1rem', borderRadius: '50%' }}>
                   <Phone size={32} color="var(--accent-primary)" />
                 </div>
@@ -100,9 +108,11 @@ const Contact = () => {
                   <h3 style={{ marginBottom: '0.2rem' }}>Phone</h3>
                   <a href="tel:912-200-8911" style={{ color: 'var(--text-secondary)' }}>912-200-8911</a>
                 </div>
-             </div>
-             
-             <div className="card flex items-center gap-md">
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={100}>
+              <div className="card flex items-center gap-md">
                 <div style={{ background: 'rgba(249, 115, 22, 0.1)', padding: '1rem', borderRadius: '50%' }}>
                   <Mail size={32} color="var(--accent-primary)" />
                 </div>
@@ -110,9 +120,11 @@ const Contact = () => {
                   <h3 style={{ marginBottom: '0.2rem' }}>Email</h3>
                   <a href="mailto:alexcarter.pts@gmail.com" style={{ color: 'var(--text-secondary)' }}>alexcarter.pts@gmail.com</a>
                 </div>
-             </div>
+              </div>
+            </ScrollReveal>
 
-             <div className="card flex items-center gap-md">
+            <ScrollReveal delay={200}>
+              <div className="card flex items-center gap-md">
                 <div style={{ background: 'rgba(249, 115, 22, 0.1)', padding: '1rem', borderRadius: '50%' }}>
                   <MapPin size={32} color="var(--accent-primary)" />
                 </div>
@@ -120,13 +132,16 @@ const Contact = () => {
                   <h3 style={{ marginBottom: '0.2rem' }}>Address</h3>
                   <p style={{ color: 'var(--text-secondary)' }}>2781 CYPRESS AVE EAST MEADOW NEW YORK</p>
                 </div>
-             </div>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Form */}
-  <div className="card" style={{ order: 1 }}>
-              <h2 style={{ marginBottom: '1.5rem' }}>Send a Message</h2>
-              <form className="flex flex-col gap-md" onSubmit={formik.handleSubmit}>
+          <div className="contact-form-column" style={{ order: 1 }}>
+            <ScrollReveal delay={160} className="contact-form-reveal">
+              <div className="card">
+                <h2 style={{ marginBottom: '1.5rem' }}>Send a Message</h2>
+                <form className="flex flex-col gap-md" onSubmit={formik.handleSubmit}>
 
                 <input
                   type="text"
@@ -199,9 +214,10 @@ const Contact = () => {
                 <button type="submit" className="btn btn-primary">
                   Submit Request
                 </button>
-              </form>
-            </div>
-
+                </form>
+              </div>
+            </ScrollReveal>
+          </div>
 
         </div>
       </div>

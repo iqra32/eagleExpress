@@ -3,3 +3,29 @@
   padding: 2rem 3rem;
   margin-top: 2rem;
 }
+
+.stat-item-reveal {
+  min-width: 0;
+}
+
+.stat-item-reveal .stat-item {
+  width: 100%;
+}
+
+.home-why-section {
+  background-color: var(--bg-secondary);
+  padding: 5rem 0;
+}
+
+.home-why-lead {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.home-why-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}

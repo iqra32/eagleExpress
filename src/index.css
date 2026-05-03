@@ -235,6 +235,8 @@ img {
   padding: 10rem 0 8rem;
   text-align: left;
   position: relative;
+  z-index: 1;
+  overflow: visible;
   border-bottom: 1px solid var(--border-color);
   color: #ffffff;
 }
@@ -280,10 +282,12 @@ img {
   display: flex !important;
   flex-direction: row;
   justify-content: center;
+  align-items: stretch;
   position: absolute;
-  bottom: 0;
   left: 50%;
-  transform: translate(-50%, 50%);
+  right: auto;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
   width: 100%;
   max-width: 1200px;
   padding: 0 1.5rem;
@@ -302,13 +306,14 @@ img {
 }
 
 .hero-feature-card {
-  background: yellow;
+  background: var(--bg-card);
   padding: 2.5rem 2.5rem;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
   text-align: left;
   transition: all 0.3s ease;
   color: var(--text-primary);
   flex: 1;
+  min-width: 0;
   border-right: 1px solid #f1f5f9;
 }
 
@@ -343,53 +348,93 @@ img {
   /* Setting emoji sizing */
 }
 
-/* Make room inside hero for absolute overlap */
+/* Room for bottom-aligned feature cards (full height inside hero, no half-off clip) */
 .hero-section {
-  padding-bottom: 12rem !important;
+  padding-bottom: 20rem !important;
 }
 
 .stats-section {
+  position: relative;
+  z-index: 0;
   background-color: var(--accent-primary);
   padding: 2rem 3rem;
   margin-top: 2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 2rem;
+  border-right: 1px solid #d0d5e8;
+  min-width: 0;
+}
+
+.stat-item > div:last-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.stat-item:last-child {
+  border-right: none;
 }
 
 @media(max-width: 992px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1.25rem 1rem;
   }
 
   .stat-item:nth-child(2) {
     border-right: none;
+  }
+
+  .stat-item {
+    padding: 0 0.75rem;
   }
 }
 
 @media(max-width: 768px) {
   .stats-section {
     margin-top: 3rem;
-    /* Hero cards are not absolute on mobile, so we need less margin */
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
-}
 
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 0 2rem;
-  border-right: 1px solid #d0d5e8;
-}
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 
-.stat-item:last-child {
-  border-right: none;
+  .stat-item {
+    padding: 1rem 0.5rem;
+    border-right: none;
+    border-bottom: 1px solid #d0d5e8;
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
 }
 
 .stat-icon-box {
@@ -407,6 +452,7 @@ img {
   font-size: 13px;
   color: #555;
   margin: 0 0 2px 0;
+  overflow-wrap: break-word;
 }
 
 .stat-value {
@@ -420,12 +466,10 @@ img {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 

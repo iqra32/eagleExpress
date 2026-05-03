@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Quote, Star } from 'lucide-react';
 import './About.css';
 import aboutImg from '../../assets/laggageimg.jpg';
+import { aboutTestimonials } from '../../components/layout/appData/data';
+import ScrollReveal from '../../components/ScrollReveal';
 
 const About = () => {
   return (
@@ -61,6 +63,60 @@ Our team handles the heavy lifting so you can focus on driving.
           </div>
         </div>
       </div>
+
+      {/* Testimonials — DSI-style section */}
+      <section className="about-testimonials-section" aria-labelledby="about-testimonials-heading">
+        <div className="container">
+          <div className="about-testimonials-intro">
+            <ScrollReveal delay={0}>
+              <p className="about-testimonials-kicker">Our testimonial</p>
+            </ScrollReveal>
+            <ScrollReveal delay={80}>
+              <h2 id="about-testimonials-heading" className="about-testimonials-title">
+                What our customers say about <span className="highlight-text">excellence</span>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={160}>
+              <p className="about-testimonials-sub">
+                Real feedback from carriers who rely on Eagle Express Dispatch to keep freight moving and
+                paperwork off their plate.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <div className="about-testimonials-grid">
+            {aboutTestimonials.map((t, i) => (
+              <ScrollReveal key={t.name} delay={100 + i * 100}>
+                <article className="about-testimonial-card">
+                  <Quote className="about-testimonial-quote-icon" size={36} strokeWidth={1.25} aria-hidden />
+                  <div className="about-testimonial-stars" aria-label="5 out of 5 stars">
+                    {Array.from({ length: 5 }).map((_, si) => (
+                      <Star
+                        key={si}
+                        size={16}
+                        className="about-testimonial-star"
+                        fill="currentColor"
+                        strokeWidth={0}
+                        aria-hidden
+                      />
+                    ))}
+                  </div>
+                  <p className="about-testimonial-text">&ldquo;{t.quote}&rdquo;</p>
+                  <footer className="about-testimonial-footer">
+                    <div className="about-testimonial-avatar" aria-hidden>
+                      {t.initials}
+                    </div>
+                    <div>
+                      <p className="about-testimonial-name">{t.name}</p>
+                      <p className="about-testimonial-role">{t.role}</p>
+                    </div>
+                  </footer>
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   );

@@ -1,0 +1,31 @@
+/* Shared scroll-in animation (used by Home, Contact, etc.) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Contact page: grid column wraps reveal so flex `order` stays on a plain div */
+.contact-form-column {
+  min-width: 0;
+}
+
+.contact-form-reveal {
+  width: 100%;
+}
